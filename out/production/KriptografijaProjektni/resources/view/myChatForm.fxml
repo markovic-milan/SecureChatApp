@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.MyChatController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #353D49;">
+         <children>
+            <Line endX="50.0" layoutX="120.0" layoutY="80.0" startX="-110.0" stroke="#2692ff" />
+            <Label fx:id="usernameLabel" layoutX="80.0" layoutY="15.0" prefHeight="17.0" prefWidth="90.0" text="UserLabel" textFill="#46a2d7">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="onlineLabel" layoutX="92.0" layoutY="30.0" text="Label" textFill="#46a2d7">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font></Label>
+            <Circle fx:id="onlineCircle" fill="DODGERBLUE" layoutX="85.0" layoutY="38.25" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+            <VBox fx:id="liveUsersBox" layoutY="120.0" prefHeight="440.0" prefWidth="200.0" spacing="10.0">
+               <padding>
+                  <Insets left="10.0" />
+               </padding></VBox>
+            <Label layoutX="10.0" layoutY="90.0" text="Online now" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Italic" size="14.0" />
+               </font>
+            </Label>
+            <Line endX="50.0" layoutX="120.0" layoutY="115.0" startX="-110.0" stroke="#2692ff" />
+            <Button fx:id="disconnectButton" defaultButton="true" layoutX="10.0" layoutY="560.0" mnemonicParsing="false" onAction="#disconnectAction" prefHeight="30.0" prefWidth="180.0" text="Disconnect" textFill="#353d49">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children></Pane>
+      <VBox alignment="BOTTOM_CENTER" layoutX="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" spacing="2.0" style="-fx-background-color: #D6DFEC;">
+         <children>
+            <TextArea fx:id="textSpace" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="596.0" />
+            <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="596.0" style="-fx-border-color: #18CBFC;">
+               <children>
+                  <TextArea fx:id="messageTA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#sendMessageEnterAction" prefHeight="35.0" prefWidth="560.0" promptText="Type your message..." style="-fx-border-color: #18CBFC;">
+                     <font>
+                        <Font name="Arial Italic" size="14.0" />
+                     </font>
+                  </TextArea>
+                  <Label fx:id="sendMessage" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#sendMessageClickAction" prefHeight="33.0" prefWidth="36.0" text="Label">
+                     <graphic>
+                        <ImageView disable="true" fitHeight="33.0" fitWidth="36.0" onMouseClicked="#sendMessageClickAction" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/images/sendMessageIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets left="2.0" right="2.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" />
+         </padding>
+      </VBox>
+      <ImageView fx:id="profileImage" fitHeight="65.0" fitWidth="65.0" layoutX="10.0" layoutY="10.0">
+         <image>
+            <Image url="@../../resources/images/profilePicture.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
